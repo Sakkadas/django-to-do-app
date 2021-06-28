@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>To Do App</title>
 </head>
-<body>
+    <body>
     <h1>To Do App</h1>
-    {% for task in tasks %}
-    <table>
-        <tr>
-            <td>{{task.id}}.{{task}}</td>
-        </tr>
-    </table>
-    {% endfor %}
-</body>
+    <hr>
+        {% for task in tasks %}
+        <table>
+            <tr>
+                <td>{{task.id}}.{{task.title}}</td>
+                <td><a href="{% url 'task' task.id %}">View</a></td>
+            </tr>
+        </table>
+        {% endfor %}
+    </body>
 </html>
