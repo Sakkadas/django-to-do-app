@@ -6,8 +6,9 @@
 </head>
     <body>
     <h1>To Do App</h1>
-    <p><a href="{% url 'create-task'%}">Add Task</a></p>
+    <h3>Welcome back {{request.user|title}}</h3>
     <hr>
+    <p><a href="{% url 'create-task'%}">Add Task</a></p>
     <table>
         {% for task in tasks %}
             <tr>
@@ -18,6 +19,10 @@
             </tr>
         {% endfor %}
         </table>
-    <a href="{% url 'login' %}">Login</a>
+    <br>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
     </body>
 </html>
