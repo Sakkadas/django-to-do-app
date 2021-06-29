@@ -42,7 +42,7 @@ class TaskLoginView(LoginView):
 
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
-    template_name = 'tasks/main.html'
+    template_name = 'tasks/taks_list.html'
     context_object_name = 'tasks'
 
     def get_context_data(self, **kwargs):
