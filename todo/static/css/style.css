@@ -1,17 +1,18 @@
 body {
     background-color: #FAFAFA;
     font-family: 'Poppins', sans-serif;
-    padding-top: 50px;
+    padding-top: 150px;
 }
 
 .container {
     max-width: 550px;
     margin: auto;
     background-color: #fff;
-    -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
-    box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+    -webkit-box-shadow: 10px 10px 10px 100px rgb(66, 64, 64);
+    box-shadow: 10px 10px 10px -4px rgb(76, 72, 72);
 }
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
 
 }
