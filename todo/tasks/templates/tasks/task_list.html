@@ -16,14 +16,14 @@
 </div>
 
 <div id="search-add-wrapper">
-<form method="GET">
-    <input type='text' name='search-area' placeholder="Search" value="{{search_input}}">
-    <input class="btn btn-primary" style="margin-top: 5px;" type="submit" value="search">
-    <input class="btn btn-light" style="margin-top: 5px;" type="submit" name='clear-area' value="clear">
-    {% if tasks|length > 0 %}
-    <a id="add-link" href="{% url 'create-task' %}"><b>Add Task</b> &#9998;</a>
-    {% endif %}
-</form>
+    <form method="GET">
+        <input type='text' name='search-area' placeholder="Search" value="{{search_input}}">
+        <input class="btn btn-primary" style="margin-top: 5px;" type="submit" value="Search">
+        <input class="btn btn-dark" style="margin-top: 5px;" type="submit" name='clear-area' value="Drop Search">
+        {% if tasks|length > 0 %}
+        <a id="add-link" href="{% url 'create-task' %}"><b>Add Task</b> &#9998;</a>
+        {% endif %}
+    </form>
 </div>
 
 
@@ -31,22 +31,36 @@
     {% for task in tasks %}
     <div class="task-wrapper" data-position="{{task.pk}}">
         <div class="task-title">
+            <div class="task-important-icon-wrapper">
+                <div class="task-important-icon">
+                    {% if task.important %}
+                    <p>&#11088;</p>
+                    {% endif %}
+                </div>
+        </div>
             {% if task.complete %}
             <div class="task-complete-icon"></div>
-            <i><s><a href="{% url 'update-task' task.id %}">{{task}}</a></s></i> {% else %}
+            <i><s><a href="{% url 'update-task' task.id %}">{{task|truncatewords:7}}</a></s></i>
+            {% else %}
             <div class="task-incomplete-icon"></div>
-            <a href="{% url 'update-task' task.id %}">{{task}}</a> {% endif %}
+            <a href="{% url 'update-task' task.id %}">{{task}}</a>
+            {% endif %}
         </div>
+
         <div class="task-controls">
             <a class="delete-link" href="{% url 'delete-task' task.id %}">&#10007;</a>
             <span class="handle">&nbsp;&#10247;</span>
         </div>
+
+
+
     </div>
 
     {% empty %}
     <div style="text-align: center; padding-bottom: 10px; line-height: 1em;">
         <h3>No new tasks are created.</h3>
-        <h3>Create a <a style="text-decoration: none; color: #e53935;" href="{% url 'create-task' %}">New task</a> ! </h3>
+        <h3>Create a <a style="text-decoration: none; color: #e53935;" href="{% url 'create-task' %}">New task</a> !
+        </h3>
     </div>
     {% endfor %}
 </div>

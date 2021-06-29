@@ -1,10 +1,13 @@
 body {
-    flex: auto;
     background-color: #FAFAFA;
     font-family: 'Poppins', sans-serif;
-    padding-top: 50px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
-
 
 
 .container {
@@ -84,6 +87,13 @@ input {
     border-radius: 50%;
 }
 
+.task-important-icon {
+    padding-top: 10px;
+    padding-right: 20px;
+    font-size: 25px;
+    line-height: 0;
+
+}
 .delete-link {
     text-decoration: none;
     font-weight: 900;
@@ -179,7 +189,7 @@ label {
 }
 
 .card-body {
-
+    margin: auto;
     flex: auto;
     padding: 20px;
 
