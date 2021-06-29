@@ -1,14 +1,16 @@
 {% extends 'tasks/main.html' %}
-
 {% block content %}
 
-<a href="{% url 'tasks' %}">Return Back</a>
-
+<div class="card-body">
 <form method="POST">
-  {% csrf_token %}
-  <p><strong>Are you sure you want to delete this task?</strong> <b>{{task}}</b></p>
-  <input type="submit" value="delete">
+    {% csrf_token %}
+    <p><strong>Are you sure you want to delete this task?</strong> <b>{{task}}</b></p>
+    <input class="btn btn-danger" type="submit" value="delete">
 </form>
-<a href="{% url 'tasks' %}">&#10226; Go Back</a>
+</div>
 
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#10226; Go Back</a>
+</div>
 {% endblock content %}
