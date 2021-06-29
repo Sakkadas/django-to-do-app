@@ -6,17 +6,18 @@
 </head>
     <body>
     <h1>To Do App</h1>
+    <p><a href="{% url 'create-task'%}">Add Task</a></p>
     <hr>
+    <table>
         {% for task in tasks %}
-        <table>
             <tr>
-                <td>{{task.id}}.{{task.title}}</td>
+                <td>{{task.title}}</td>
                 <td><a href="{% url 'task' task.id %}">View</a></td>
-                <td><a href="{% url 'create-task'%}">Add</a></td>
                 <td><a href="{% url 'update-task' task.id%}">Update</a></td>
                 <td><a href="{% url 'delete-task' task.id%}">Delete</a></td>
             </tr>
-        </table>
         {% endfor %}
+        </table>
+    <a href="{% url 'login' %}">Login</a>
     </body>
 </html>
