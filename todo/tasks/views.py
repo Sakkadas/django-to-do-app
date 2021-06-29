@@ -15,6 +15,8 @@ from .models import Task
 class TaskRegisterView(FormView):
     template_name = 'tasks/register.html'
     form_class = UserCreationForm
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
         user = form.save()
@@ -49,10 +51,12 @@ class TaskList(LoginRequiredMixin, ListView):
         context['count'] = context['tasks'].filter(complete=False).count()
 
         search_input = self.request.GET.get('search-area') or ''
+        clear_input = self.request.GET.get('clear-area')
         if search_input:
             context['tasks'] = context['tasks'].filter(title__contains=search_input)
-        context['search_input'] = search_input
-
+        elif clear_input:
+            search_input = ''
+            context['search_input'] = search_input
         return context
 
 
