@@ -1,5 +1,8 @@
 <h2>To Do App</h2>
 
+*To Do list app that helps jotting your simple tasks within day*
+
+
 <img src="details/Frame 1.jpg" border="10" width = 370 align=center ></a>
 
 # Requirements
